@@ -27,9 +27,11 @@ jobs:
       - name: Azure Login with OIDC
         uses: azure/login@v1
         with:
-          client-id: ${{ vars.AZURE_CLIENT_ID }}
-          tenant-id: ${{ vars.AZURE_TENANT_ID }}
-          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+          client-id: ${{ vars.CLIENT_ID }}
+          tenant-id: ${{ vars.TENANT_ID }}
+          subscription-id: ${{ vars.SUBSCRIPTION_ID }}
+          enable-AzPSSession: true
+
       
       - name: Verify Azure Connection
         run: |
