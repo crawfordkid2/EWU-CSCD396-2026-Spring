@@ -13,7 +13,7 @@ The purpose of this assignment is to solidify your learning of:
 
 ## Instructions
 
-1. Fork class repository ❌✅
+1. Fork class repository ✅
 2. Create Assignment 1 Branch and Sync branch from class repo ❌✅
 3. Clone your repo/branch to your computer
 4. Set Up Azure following SettingUpAzure.md ❌✅
