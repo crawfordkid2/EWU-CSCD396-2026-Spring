@@ -4,27 +4,27 @@
 
 1. [Assignment 1](Assignment1.md)
    - 100 points +5 EC points
-   - Assigned: 9/21
-   - Turn in: 9/28 11:59 pm
+   - Assigned: 4/7
+   - Turn in: 4/14 11:59 pm
 1. [Assignment 2](Assignment2.md)
    - 100 points +5 EC points
-   - Assigned: 9/28
-   - Turn in: 10/12 11:59 pm
+   - Assigned: 4/14
+   - Turn in: 4/28 11:59 pm
 1. [Assignment 3](Assignment3.md)
    - 100 points +5 EC points
-   - Assigned: 10/12
-   - Turn in: 10/26 11:59 pm
+   - Assigned: 4/28
+   - Turn in: 5/12 11:59 pm
 1. [Assignment 4](Assignment4.md)
    - 100 points +5 EC points
-   - Assigned: 10/26
-   - Turn in: 11/9 11:59 pm
+   - Assigned: 5/12
+   - Turn in: 5/26 11:59 pm
 1. [Assignment 5](Assignment5.md)
    - 100 points +5 EC points
-   - Assigned: 11/9
-   - Turn in: 11/28 11:59 pm
+   - Assigned: 5/26
+   - Turn in: 6/4 11:59 pm
 1. [Final Project](Final.md)
    - 50 points +50 EC points
-   - Assigned: 11/28
+   - Assigned: 5/26
    - Final project presentations finals week
 
 If you are having trouble viwing the below graph, copy the code and paste it [in this editor](https://mermaid-js.github.io/docs/mermaid-live-editor-beta)
@@ -62,13 +62,13 @@ gantt
 
 # How homework works
 
-- Add phil@intellitect.com, grant@intellitect.com, jenny.curry@intellitect.com, and meg@intellitect.com as contributors to your Azure Subscription.
+- Add phil@intellitect.com and jenny.curry@intellitect.com as contributors to your Azure Subscription.
 - Fork the class repo in your own
 - Screenshots of the resource group and each service with relevant data posted to GitHub.
 - Readme.md with a link to the resource group with the assignment. Your assignment will be fully contained in a single resource group. All resources for the assignment must be in the resource group. The resource group must be named according to the assignment requirements. Resource groups can be renamed.
 - Once your assignment is complete, create a PR against the assignment branch
 
-# How To Submit (Starting 5/4/23)
+# How To Submit (Starting 4/7/26)
 
 ### Make an Assignment PR against Class Repository
 
