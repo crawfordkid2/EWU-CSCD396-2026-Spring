@@ -6,6 +6,20 @@ $location = "eastus"
 
 Set-AzContext -SubscriptionId $subscription_id
 
+# Check if resource group exists
+$rg = Get-AzResourceGroup -Name $resourceGroupName -ErrorAction SilentlyContinue
+
+if (-not $rg) {
+    Write-Host "Creating resource group: $resourceGroupName"
+    New-AzResourceGroup `
+        -Name $resourceGroupName `
+        -Location $location
+}
+else {
+    Write-Host "Resource group already exists: $resourceGroupName"
+}
+
+# Create unique storage account name
 $randomSuffix = Get-Random -Maximum 99999
 $storageAccountName = "assign1temp$randomSuffix"
 
