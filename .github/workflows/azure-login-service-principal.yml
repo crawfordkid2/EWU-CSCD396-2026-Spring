@@ -103,7 +103,7 @@ jobs:
           azPSVersion: 'latest'
           inlineScript: |
             # Set variables
-            $resourceGroupName = "rg-vmtesst1"
+            $resourceGroupName = "rg-vmtest1"
             $keyVaultName = "kv-ewu2026test"
             $location = "eastus"
             
