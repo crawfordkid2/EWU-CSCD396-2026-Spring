@@ -29,13 +29,13 @@
 ### Topics Covered
 - Q and A (max 10 min)
 - Review tools and environment configuration
-- Getting connected to Copilot
+- Getting connected to Copilot (https://github.com/settings/education/benefits?utm_source=2025-04-25-repo-TeacherToolbox&locale=en-US)
 - Getting connected to Azure
   - API and Resource Manager architecture
   - PowerShell and the AZ module
   - Azure CLI
   - Configuring a budget and cost alerts
-  - Provisoning Services
+  - Provisioning Services
 - [GitHub Actions Intro](https://docs.github.com/en/actions)
 - Service Principals and Open ID Connect (OIDC)
 - Services Review
