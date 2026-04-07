@@ -29,6 +29,6 @@ jobs:
       - name: Run Assignment1 PowerShell script
         uses: azure/powershell@v2
         with:
-         inlineScript: |
-          ./Assignment1/Assignment1.ps1
-         azPSVersion: "latest"
+          inlineScript: |
+            ./Assignment1/Assignment1.ps1
+          azPSVersion: "latest"
