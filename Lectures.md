@@ -46,14 +46,12 @@
 ### Topics Covered
 - Deploying applications to Azure
 - Enterprise application architecture
-- CI/CD with GitHub Actions
-- Wordle clone
-  - client side
-  - turning into a scalable "enterprise" SaaS
+- Simple web app
 - Azure App Service
   - Build and deploy
   - App Configuration
   - Slots
+- CI/CD with GitHub Actions
 
 ## Lecture 4
 ### Topics Covered

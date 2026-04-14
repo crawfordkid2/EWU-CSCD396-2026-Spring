@@ -33,6 +33,13 @@ The purpose of this assignment is to solidify your learning of:
 - OIDC Federated Credential Configuration
 - Log of GitHub actions successfully ran with oidc login and subscription resources listed
 
+13. Create a new .NET based web app
+14. Deploy the web app to Azure App Service
+- Provide a screenshot of the running app. Bes sure to incldue the URL
+- Provide a link to the github action that deployed the app
+
+
+
 ## Extra Credit
 
 From the script, create a resource in Azure and have it be part of the list, then delete the resource.
