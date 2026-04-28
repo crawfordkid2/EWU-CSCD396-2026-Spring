@@ -1,85 +1,52 @@
 # EWU-CSCD396-2023-Fall
 
-## Assignment 3
+## Assignment 3 - DRAFT!!!
 
 The purpose of this assignment is to solidify your learning of:
 
-- Virtual Machines
-- Container Registry
-- Event Grid
-- Configuration of Event Grid to Subscribe to Container Registry Events
-- Using Azure PowerShell
-- Azure Container Instances
-- Event Hub
+- Build and deploying containers
+- Terraform IaC
+- Functions and Logic Apps
+- Messaging and Eventing
 
 ## Prerequisites
 
-Please add jcurry9@ewu.edu as a contributor to your subscription, otherwise grading will not be possible.
+- Standard class pre-reqs
 
 ## Instructions
 
+- All cloud infrastructure should be built with Terraform. Terraform State should be maintained in an Azure Storage Account
+- All services should be deployed through a GitHub Action workflow
+
 Complete the following Tutorials and do not clean up resources until assignment is graded.
 
-1. Create Virtual Machine
-   https://learn.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-manage-vm?source=recommendations
+1. Create and deploy an Azure Function Bound to Service Bus. The function should write messages received to a storage account
 
-- Virtual Machine Created ❌✅
+   {https://learn.microsoft.com/en-us/azure/app-service/scenario-secure-app-access-storage?tabs=azure-cli}
 
-2. Create Container Registry
-Note: Be sure you have docker desktop installed and running
-   https://learn.microsoft.com/en-us/azure/container-registry/container-registry-get-started-powershell
+- Enabled Managed Identity on the function app ❌✅
+- Create Storage Account ❌✅
+- Function App Identity Granted Access to Storage Account ❌✅
 
-- Container Registry Created ❌✅
-- Image tagged 'hello-word:v1' is pushed to container registy ❌✅
+2. Add a feature to the container app from Assignment 2 to write a message to the Service Bus from step 2. Ideally this is a text box for the message and a button to submit the message to the bus. You can use the Azure SDK for .NET to send messages to the bus from your container app.
 
-3. Create an Event Grid and Send Container Registry Events (Event Grid System Topic) 
-   https://learn.microsoft.com/en-us/azure/container-registry/container-registry-event-grid-quickstart
-   https://learn.microsoft.com/en-us/azure/container-registry/container-registry-event-grid-quickstart#subscribe-to-registry-events
+- Add an identity to the container app (by updating your terraform configuration) ❌✅
+- Assign the container app identity adequate permissions on your service bus to send messages. ❌✅
+- Can I enter a message on your site and see the message appear in your storage account ❌✅
 
+3. Configure your GitHub Action workflow to automatically deploy when you modify application code.
 
-- Event Grid Web Viewer Endpoint Available ❌✅
-- Subscribe Event Grid to Container Registry Events to Create an Event Grid System Topic ❌✅
+ - Application code should trigger deployment of application code
+ - Terraform code changes should trigger deployment of infrastructure code. The change in iac does not have to be fancy, but should be easy to recognize
+ - Redeploy the application code once the Terraform is deployed
+ 
+- Application code changes trigger deployment of the application ❌✅
+- Terraform code changes trigger deployment of infrastructure code ❌✅
+- Application code is redeployed after Terraform deployment completes ❌✅
 
-- New Image Version Pushed to Container Registry from Step 2 ❌✅
-- Event Grid Subscription is Configured to Send Events to Event Viewer Web Endpoint❌✅
+4. Please add jcurry9@ewu.edu as a contributor to your subscription, otherwise grading will not be possible.
 
-4. Create a container instance
-   https://learn.microsoft.com/en-us/azure/container-instances/container-instances-quickstart
-
-- Container instance created ❌✅
-
-5. Create Event Hub
-   https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-quickstart-powershell
-
-- Event Hub Namespace Created ❌✅
-- Event Hub Created ❌✅
-- Events have been sent to your Event Hub (Submit a screenshot in your PR of Events that have been sent to your Event Hub) ❌✅
-  https://learn.microsoft.com/en-us/azure/event-hubs/send-and-receive-events-using-data-generator
-  [Screenshot Example](https://learn.microsoft.com/en-us/azure/event-hubs/send-and-receive-events-using-data-generator#view-events-using-event-hubs-data-generator)
-
-6. Create a PowerShell script called Assignment3.ps1 on your branch within the Assignment3 folder ❌✅
-
-- Copy the following text into your PowerShell script and fill in your specific values for the variables
-```
-$SubscriptionId = ""
-$ResourceGroup = ""
-$EventGridAppUrl = ""
-$VirtualMachineName = ""
-$ContainerRegistryName = ""
-$ContainerRegistryPassword = ""
-$EventHubNamespaceName = ""
-$EventHubName = ""
-$EventGridSystemTopicName = ""
-$ContainerGroupName = ""
-```
-
-
-## Script Grading
-You can test if your assignment will pass by running the PS script at Scripts/Assignment3Grading.ps1. Run your Assignment3.ps1 script to set local variables first.
-
-Be sure to install the Az Powershell modules that are listed as dependencies 
 
 ## Extra Credit
 
-- Create a custom image from your virtual machine named 'vm-image:v1" and push the image to your container registry. ❌✅
-https://learn.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-custom-images
+- Have the web app write the message to an Azure SQL Table in addition to the message bus

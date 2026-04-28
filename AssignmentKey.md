@@ -5,10 +5,10 @@
 1. [Assignment 1](Assignment1.md)
    - 100 points +5 EC points
    - Assigned: 4/7
-   - Turn in: 4/14 11:59 pm
+   - Turn in: 4/21 11:59 pm
 1. [Assignment 2](Assignment2.md)
    - 100 points +5 EC points
-   - Assigned: 4/14
+   - Assigned: 4/16
    - Turn in: 4/28 11:59 pm
 1. [Assignment 3](Assignment3.md)
    - 100 points +5 EC points

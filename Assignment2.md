@@ -4,68 +4,42 @@
 
 The purpose of this assignment is to solidify your learning of:
 
-- Web App
-- Storage Account
-- Key Vault
-- Using Azure CLI
+- Build and deploying containers
+- Terraform IaC
 
 ## Prerequisites
 
-- Install VSCode Extension 'Azure App Service'
+- All CLI tools used in doc/containers.md such as dotnet, docker, etc.
 
 ## Instructions
 
+- All cloud infrastructure should be built with Terraform. Terraform State should be maintained in a Storage Account
+- All services should be deployed through a GitHub Action workflow
+
 Complete the following Tutorials and do not clean up resources until assignment is graded.
 
-1. Create Web App
+1. Create and deploy a containerized Web App
+
    {https://learn.microsoft.com/en-us/azure/app-service/quickstart-dotnetcore?tabs=net70&pivots=development-environment-cli}
    Note: Deploy application code using az cli, not the VSCode extension
 
-- Web App Created ❌✅
-  (You can use the below steps to publish your app OR use the 'az webapp up' command in the above tutorial)
+- Container App Created ❌✅
+  (You can use the below steps to publish your app)
 
-  - Run command from your terminal 'dotnet publish SampleApp/MyFirstAzureWebApp'. This builds the application and files are genearted in SampleApp/MyFirstAzureWebApp/bin/Debug/net7.0/publish folder
-  - Zip the items in your created publish folder
-  - Use 'az webapp deploy' command to deploy your zip file to the application
+  - Create a new app using dotnet new command 
+  - See docs/containers.md for how to create and deploy an image of your new app code to azure container registry
 
-- Url Accessible ❌✅
+- Create a terraform main.tf and variables.tf files within a terraform folder. These files should contain relevant HCL for deploying a container app. ❌✅
+- Use a variable for the container image name so that your workflow must pass this value into the terraform apply ❌✅
+- Create a workflow that deploys your container app with Terraform using the init, plan, and apply commands adn passes your container image name into the apply ❌✅
 
-2. Create and Connect Storage Account - Using Azure CLI when option is available
-   {https://learn.microsoft.com/en-us/azure/app-service/scenario-secure-app-access-storage?tabs=azure-cli}
+- Url Accessible (and working) ❌✅
+- Successful Workflow Run to Deploy Infrastructure ❌✅
 
-- Enabled Managed Identity on Web App ❌✅
-- Created Storage Account ❌✅
-- Web App Granted Access to Storage Account ❌✅
 
-3. Create a Key Vault
-   https://learn.microsoft.com/en-us/azure/key-vault/general/quick-create-cli
-   https://learn.microsoft.com/en-us/azure/app-service/app-service-configuration-references#granting-your-app-access-to-referenced-key-vaults
-   https://learn.microsoft.com/en-us/azure/app-service/app-service-key-vault-references?tabs=azure-cli
-
-- Key Vault Created ❌✅
-- Key Vault Secret Created ❌✅
-- Key Vault Access policy created for user 'jcurry9@ewu.edu' with secret 'Get' permission ❌✅
-- Web App Granted Access to Key Vault ❌✅
-- Reference key vault secret as an app setting on your web app where the app setting name is the secret name and the value references your secret using the secret uri ❌✅
-  (https://learn.microsoft.com/en-us/azure/app-service/app-service-key-vault-references?tabs=azure-cli#source-app-settings-from-key-vault)
-
-4. Create a PowerShell script called Assignment2.ps1 on your branch within the Assignment2 folder ❌✅
-
-- Copy the following text into your PowerShell script and fill in your specific values for the variables
-```
-$SubscriptionId = ""
-$ResourceGroup = ""
-$WebAppName = ""
-$WebAppUrl = ""
-$KeyVault = ""
-$SecretName = ""
-$StorageAccount = ""
-```
-- You can test if your assignment will pass by running the PS script at Scripts/Assignment2Grading.ps1. Run your Assignment2.ps1 script to set local variables first.
-
-5. Please add jcurry9@ewu.edu as a contributor to your subscription, otherwise grading will not be possible.
+4. Please add jcurry9@ewu.edu as a contributor to your subscription, otherwise grading will not be possible.
 
 
 ## Extra Credit
 
-TBD
+
