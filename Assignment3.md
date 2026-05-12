@@ -17,6 +17,7 @@ The purpose of this assignment is to solidify your learning of:
 
 - All cloud infrastructure should be built with Terraform. Terraform State should be maintained in an Azure Storage Account
 - All services should be deployed through a GitHub Action workflow
+- All of this assignemnt should be in a single repo (mono repo)
 
 Complete the following Tutorials and do not clean up resources until assignment is graded.
 
@@ -36,15 +37,19 @@ Complete the following Tutorials and do not clean up resources until assignment 
 
 3. Configure your GitHub Action workflow to automatically deploy when you modify application code.
 
- - Application code should trigger deployment of application code
- - Terraform code changes should trigger deployment of infrastructure code. The change in iac does not have to be fancy, but should be easy to recognize
+ - Application code should trigger deployment of application code. Only the application code shoudd be deployed
+ - Terraform code changes should trigger deployment of infrastructure code. The change in iac does not have to be fancy, but should be easy to recognize. Don't deploy app at the same  time.
  - Redeploy the application code once the Terraform is deployed
  
 - Application code changes trigger deployment of the application ❌✅
 - Terraform code changes trigger deployment of infrastructure code ❌✅
 - Application code is redeployed after Terraform deployment completes ❌✅
+- Document how the triggering is done the PR ❌✅
 
 4. Please add jcurry9@ewu.edu as a contributor to your subscription, otherwise grading will not be possible.
+- Provide a link to the Azure Resource group where the resources are deployed in your PR
+- Provide a link to the GitHub Repo you used for the assignment
+
 
 
 ## Extra Credit

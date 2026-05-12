@@ -100,19 +100,14 @@ Messaging and Eventing
 
 ## Lecture 9
 ### Topics Covered
-- Static Web Apps
-- APIs and API Management
-- Content Delivery Networks (CDN)
+- Event Grid and Event Hub
 
 ## Lecture 10
 ### Topics Covered
-- Azure Static Web App Networking and DNS
+- Azure Static Web Apps
+- Content Delivery Networks (CDN)
 - Networking and DNS
-- Connecting
-- Finish off Event Grid
-- Solution architecture
-- Planning
-- Deployments
+- APIs and API Management
 
 ## Lecture 11
 ### Topics Covered
@@ -120,34 +115,34 @@ Messaging and Eventing
 
 ## Lecture 12
 ### Topics Covered
-- Query Cosmos DB 
-- Cosmos DB Change Feed
+- Agile Principles and Practices
+- GitHub Issues and Projects
 
 ## Lecture 13
 ### Topics Covered
-- AI Foundry
+- Query Cosmos DB 
+- Cosmos DB Change Feed
 
 ## Lecture 14
 ### Topics Covered
-- API Management continued ***
-- Something
+- AI Foundry
+
+- Backlog Grooming
+- Flesh out user stories
+- Ruleset to protect main branch
 
 ## Lecture 15
 ### Topics Covered
-- Logic App w/ Sentiment Analysis
-- Static site updates w/ secure a page
-- Redis Cache
+- Azure Monitor
 
 ## Lecture 16
 Set the plan for remaining classes
 ### Topics Covered
-- Build out web app
+- Fabric
 
 ## Lecture 17
 Agile Project Management
 ### Topics Covered
-- Agile Principles and Practices
-- GitHub Issues and Projects
 - Azure DevOps
 - Jira
 - Scrum Framework
@@ -156,16 +151,12 @@ Agile Project Management
   - Planning and estimation
 - Team project management and communication  
 
-
 ## Lecture 18
 ### Topics Covered
-- DevOps
 - App Configuration Service
 
 ## Lecture 19
 ### Topics Covered
-- Scrum
-- Azure Monitor
 
 ## Lecture 20
 ### Topics Covered
@@ -191,8 +182,6 @@ Agile Project Management
     - [More workflow stuff](https://docs.github.com/en/enterprise-cloud@latest/actions/using-workflows/about-workflows)
 - monitoring and debugging
 - Security: managed identity, RBAC
-
-
 
 ## Azure Services
 Following is the primary list of services we plan to cover in this class. Note that several supporting services will also be covered.
@@ -220,6 +209,7 @@ Following is the primary list of services we plan to cover in this class. Note t
     - Portal
 
 ### To Cover
+- MCP Servers
 - Container Apps
     - Kubernetes
 - CDN
