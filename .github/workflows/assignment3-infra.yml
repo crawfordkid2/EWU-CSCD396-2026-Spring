@@ -27,8 +27,8 @@ env:
   ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
   ARM_USE_OIDC: true
 
-  TF_VAR_container_image_name: 'crawfordacr2026.azurecr.io/netwebbasedapp:latest'
-  TF_VAR_location: 'westus3'
+  TF_VAR_container_image_name: 'mcr.microsoft.com/azuredocs/containerapps-helloworld:latest'
+  TF_VAR_location: 'eastus'
 
 jobs:
   terraform-deploy:
