@@ -19,23 +19,13 @@ resource "azurerm_resource_group" "main" {
   location = var.location
 }
 
-resource "azurerm_log_analytics_workspace" "main" {
-  name                = "law-${var.container_app_name}"
-  location            = azurerm_resource_group.main.location
-  resource_group_name = azurerm_resource_group.main.name
-  sku                 = "PerGB2018"
-  retention_in_days   = 30
-}
-
-resource "azurerm_container_app_environment" "main" {
-  name                       = var.environment_name
-  location                   = azurerm_resource_group.main.location
-  resource_group_name        = azurerm_resource_group.main.name
-  log_analytics_workspace_id = azurerm_log_analytics_workspace.main.id
-}
-
 data "azurerm_container_registry" "acr" {
   name                = var.acr_name
+  resource_group_name = "rg-assignment2-crawford"
+}
+
+data "azurerm_container_app_environment" "existing" {
+  name                = "env-assignment2-crawford"
   resource_group_name = "rg-assignment2-crawford"
 }
 
@@ -94,17 +84,17 @@ resource "azurerm_linux_function_app" "main" {
   }
 
   app_settings = {
-    "FUNCTIONS_WORKER_RUNTIME"        = "dotnet-isolated"
-    "ServiceBus__fullyQualifiedNamespace" = "${azurerm_servicebus_namespace.main.name}.servicebus.windows.net"
-    "ServiceBusQueueName"             = azurerm_servicebus_queue.main.name
-    "StorageAccountName"              = azurerm_storage_account.function_storage.name
-    "StorageContainerName"            = azurerm_storage_container.messages.name
+    FUNCTIONS_WORKER_RUNTIME             = "dotnet-isolated"
+    ServiceBus__fullyQualifiedNamespace  = "${azurerm_servicebus_namespace.main.name}.servicebus.windows.net"
+    ServiceBusQueueName                  = azurerm_servicebus_queue.main.name
+    StorageAccountName                   = azurerm_storage_account.function_storage.name
+    StorageContainerName                 = azurerm_storage_container.messages.name
   }
 }
 
 resource "azurerm_container_app" "main" {
   name                         = var.container_app_name
-  container_app_environment_id = azurerm_container_app_environment.main.id
+  container_app_environment_id = data.azurerm_container_app_environment.existing.id
   resource_group_name          = azurerm_resource_group.main.name
   revision_mode                = "Single"
 
@@ -152,6 +142,12 @@ resource "azurerm_container_app" "main" {
   }
 }
 
+resource "azurerm_role_assignment" "container_app_acr_pull" {
+  scope                = data.azurerm_container_registry.acr.id
+  role_definition_name = "AcrPull"
+  principal_id         = azurerm_container_app.main.identity[0].principal_id
+}
+
 resource "azurerm_role_assignment" "container_app_servicebus_sender" {
   scope                = azurerm_servicebus_namespace.main.id
   role_definition_name = "Azure Service Bus Data Sender"
@@ -171,8 +167,7 @@ resource "azurerm_role_assignment" "function_storage_blob_contributor" {
 }
 
 output "container_app_url" {
-  description = "URL of the Container App"
-  value       = "https://${azurerm_container_app.main.latest_revision_fqdn}"
+  value = "https://${azurerm_container_app.main.latest_revision_fqdn}"
 }
 
 output "resource_group_name" {
