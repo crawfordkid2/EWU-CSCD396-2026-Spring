@@ -30,7 +30,8 @@ env:
   ARM_USE_OIDC: true
 
   TF_VAR_container_image_name: 'crawfordacr2026.azurecr.io/netwebbasedapp:latest'
-
+  TF_VAR_location: 'westus3'
+  
 jobs:
   terraform-deploy:
     name: Terraform Deploy Assignment 3
