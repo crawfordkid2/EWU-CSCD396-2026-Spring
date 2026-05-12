@@ -1,24 +1,36 @@
+Revert to class project
+
+
+
 # EWU-CSCD396-2023-Fall
+
+Container and ID catch 22
+PR workflows
+
+
 
 ## Assignment 3
 
 The purpose of this assignment is to solidify your learning of:
 
-- Virtual Machines
-- Container Registry
 - Event Grid
 - Configuration of Event Grid to Subscribe to Container Registry Events
-- Using Azure PowerShell
 - Azure Container Instances
 - Event Hub
+- Static Web Sites
+- APIM
+
+
 
 ## Prerequisites
-
-Please add jcurry9@ewu.edu as a contributor to your subscription, otherwise grading will not be possible.
+- Standard class pre-reqs
 
 ## Instructions
 
 Complete the following Tutorials and do not clean up resources until assignment is graded.
+
+- Please add jcurry9@ewu.edu as a contributor to your Azure subscription, otherwise grading will not be possible.
+- Provide a link to the repo used for the assignment
 
 1. Create Virtual Machine
    https://learn.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-manage-vm?source=recommendations
