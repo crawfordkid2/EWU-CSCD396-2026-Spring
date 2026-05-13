@@ -1,8 +1,30 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Assignment 3 Message Sender";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Assignment 3 Message Sender</h1>
+    <p>Send a message to Azure Service Bus.</p>
+
+    <form asp-controller="Home" asp-action="SendMessage" method="post" class="mt-4">
+        <div class="mb-3">
+            <input 
+                type="text" 
+                name="message" 
+                class="form-control" 
+                placeholder="Enter your message" 
+                required />
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            Send Message
+        </button>
+    </form>
+
+    @if (ViewBag.Status != null)
+    {
+        <div class="alert alert-info mt-4">
+            @ViewBag.Status
+        </div>
+    }
 </div>
