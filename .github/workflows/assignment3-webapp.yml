@@ -1,0 +1,60 @@
+name: Assignment 3 Web App Deploy
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - Assignment-3
+    paths:
+      - 'Assignment2/NetWebBasedApp/**'
+      - '.github/workflows/assignment3-webapp.yml'
+
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  ACR_NAME: 'crawfordacr2026'
+  IMAGE_NAME: 'crawfordacr2026.azurecr.io/netwebbasedapp:${{ github.sha }}'
+  CONTAINER_APP_NAME: 'ca-assignment2-crawford'
+  RESOURCE_GROUP: 'rg-assignment2-crawford'
+  SERVICE_BUS_NAMESPACE: 'sb-assignment3-crawford.servicebus.windows.net'
+  SERVICE_BUS_QUEUE: 'messages2'
+
+jobs:
+  deploy-webapp:
+    name: Build Push and Deploy Web App
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Azure Login with OIDC
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Build Docker Image
+        run: |
+          docker build -f ./Assignment2/NetWebBasedApp/DockerBuild.dockerfile \
+            -t $IMAGE_NAME \
+            ./Assignment2/NetWebBasedApp
+
+      - name: Login to ACR
+        run: az acr login --name $ACR_NAME
+
+      - name: Push Docker Image
+        run: docker push $IMAGE_NAME
+
+      - name: Update Container App Image and Env Vars
+        run: |
+          az containerapp update \
+            --name $CONTAINER_APP_NAME \
+            --resource-group $RESOURCE_GROUP \
+            --image $IMAGE_NAME \
+            --set-env-vars \
+              ServiceBus__fullyQualifiedNamespace=$SERVICE_BUS_NAMESPACE \
+              ServiceBusQueueName=$SERVICE_BUS_QUEUE
