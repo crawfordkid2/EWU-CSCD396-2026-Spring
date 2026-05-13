@@ -36,7 +36,7 @@ variable "service_bus_namespace_name" {
 variable "service_bus_queue_name" {
   description = "Service Bus queue name"
   type        = string
-  default     = "messages"
+  default     = "messages2"
 }
 
 variable "storage_account_name" {
